@@ -1,9 +1,9 @@
 package org.quickset
 
-import java.io.IOException
-
+import zio.console.{Console, getStrLn, putStrLn}
 import zio.{ App, ExitCode, URIO, ZEnv, ZIO }
-import zio.console.{ getStrLn, putStrLn, Console }
+
+import java.io.IOException
 
 object Main extends App {
     val app: ZIO[Console, IOException, Unit] =

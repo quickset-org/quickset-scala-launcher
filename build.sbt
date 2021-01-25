@@ -7,7 +7,7 @@ organization              := "org.quickset"
 fork in Test              := true
 parallelExecution in Test := true
 version                   := "0.0.0.1"
-lazy val zioVersion = "1.0.3"
+lazy val zioVersion = "1.0.4"
 enablePlugins(BuildInfoPlugin)
 buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion)
 buildInfoPackage := "org.quickset"

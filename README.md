@@ -1,8 +1,34 @@
-## sbt project compiled with Scala 3
+# Quickset
 
-### Usage
+```bash
+$ quickset
+Quickset v0.0.1 found local quickset file would you like to import it? [y/N]
 
-This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
+$ quickset . 
+Quickset v0.0.1 importing .quickset.toml
+Installing rust dependency: rustup ---
+Installing sqlite dependency: homebrew ---
 
-For more information on the sbt-dotty plugin, see the
-[dotty-example-project](https://github.com/lampepfl/dotty-example-project/blob/master/README.md).
+
+```
+
+
+```bash
+$ quickset use github.com/onesupercoder/quickset:recipes/scala #(tap and install)
+$ quickset tap airbnb/quickset # tap make available 
+#tap should be unnecessary because everything should have a tap
+```
+
+
+```toml
+#designing format for quickset
+#the idea is to allow all development dependencies to be setup
+
+[dependencies]
+rust = { tap = "airbnb/quickset", toolchain = "stable" }
+sqlite = { version = "latest" }
+
+[cargo]
+diesel_cli = { depends-on = ["rust", "sqlite"], features = ["no-default-features", "features sqlite"] }
+cargo-edit = {}
+```

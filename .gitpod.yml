@@ -1,0 +1,3 @@
+tasks:
+  - init: sbt compile
+    command: sbt run

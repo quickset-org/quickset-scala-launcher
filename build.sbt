@@ -7,7 +7,7 @@ organization              := "org.quickset"
 fork in Test              := true
 parallelExecution in Test := true
 version                   := "0.0.0.1"
-lazy val zioVersion = "1.0.4"
+lazy val zioVersion = "1.0.4-2"
 enablePlugins(BuildInfoPlugin)
 buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion)
 buildInfoPackage := "org.quickset"
@@ -19,7 +19,6 @@ Compile / mainClass := Some("org.quickset.Main")
 // Scala libraries
 libraryDependencies ++= Seq(
   "dev.zio" %% "zio"                                     % zioVersion,
-  "com.github.spotbugs"  % "spotbugs"         % "4.2.0",
   "dev.zio" %% "zio-test"          % zioVersion % "test",
   "dev.zio" %% "zio-test-sbt"      % zioVersion % "test",
 )

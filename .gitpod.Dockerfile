@@ -1,7 +1,10 @@
-FROM gitpod/workspace-full
+FROM adoptopenjdk/openjdk15:x86_64-ubuntu-jdk-15.0.2-slim
 
-RUN sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/Ammonite/releases/download/2.3.8/2.12-2.3.8) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm'
-
-RUN brew install scala coursier/formulas/coursier sbt scalaenv
-
-RUN scalaenv install scala-2.13.4 && scalaenv global scala-2.13.4
+RUN curl -L -o sbt.deb http://dl.bintray.com/sbt/debian/sbt-1.4.7.deb && \
+    dpkg -i sbt.deb && \
+    add-apt-repository ppa:neovim-ppa/stable && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git unzip wget libvips-tools neovim && \
+    apt-get clean -y && \
+    apt-get autoremove --purge -y
